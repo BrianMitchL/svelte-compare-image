@@ -19,7 +19,7 @@
   >.
 </p>
 <p>
-  The markup, state logic, and styling was adapted from <a
+  The markup, state logic, and styling were originally adapted from <a
     href="https://github.com/junkboy0315/react-compare-image"
     >react-compare-image</a
   >.

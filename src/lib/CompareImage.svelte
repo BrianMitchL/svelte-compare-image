@@ -1,10 +1,26 @@
 <script lang="ts">
   import { writable } from "svelte/store";
 
+  /**
+   * src attribute of the left HTMLImageElement
+   */
   export let imageLeftSrc: string = "";
+  /**
+   * alt text for the left image
+   */
   export let imageLeftAlt: string = "";
+  /**
+   * src attribute of the right HTMLImageElement
+   */
   export let imageRightSrc: string = "";
+  /**
+   * alt text for the left image
+   */
   export let imageRightAlt: string = "";
+  /**
+   * width of slider line in pixels
+   */
+  export let sliderWidth: number = 2;
 
   function syncWidth(el: HTMLElement | null) {
     return writable(0, (set) => {
@@ -54,10 +70,9 @@
     }
   }
 
-  const sliderWidth: number = 2;
   let sliderPosition: number = 0.5;
 
-  const handleSliding = (e: TouchEvent | MouseEvent) => {
+  function handleSliding(e: TouchEvent | MouseEvent) {
     // touch/cursor from left of viewport
     const pageX = "touches" in e ? e.touches[0].pageX : e.pageX;
     // account for horizontal window scroll
@@ -71,22 +86,25 @@
     const clampedPos = Math.min(Math.max(targetPos, minPos), maxPos);
 
     sliderPosition = clampedPos / $containerWidthStore;
-  };
+  }
 
-  const slideStart = (e: TouchEvent | MouseEvent) => {
+  function slideStart(e: TouchEvent | MouseEvent) {
+    // we prevent default, but still want to focus on the container
+    // so that interaction behavior is consistent, and we see keyboard events
+    containerRef?.focus();
     // Slide the image even if you just click or tap (not drag)
     handleSliding(e);
 
     window.addEventListener("mousemove", handleSliding);
     window.addEventListener("touchmove", handleSliding);
-  };
+  }
 
-  const slideEnd = () => {
+  function slideEnd() {
     window.removeEventListener("mousemove", handleSliding);
     window.removeEventListener("touchmove", handleSliding);
-  };
+  }
 
-  const keyDown = (e: KeyboardEvent) => {
+  function keyDown(e: KeyboardEvent) {
     if (e.key === "ArrowLeft") {
       e.preventDefault();
       sliderPosition = Math.max(sliderPosition - 0.1, 0);
@@ -94,20 +112,20 @@
       e.preventDefault();
       sliderPosition = Math.min(sliderPosition + 0.1, 1);
     }
-  };
+  }
 </script>
 
 <div
   bind:this={containerRef}
   on:touchstart|preventDefault={slideStart}
   on:touchend={slideEnd}
-  on:mousedown={slideStart}
+  on:mousedown|preventDefault={slideStart}
   on:mouseup={slideEnd}
   on:keydown={keyDown}
   class="compare-image-container"
   tabindex="0"
   style:display={leftLoaded && rightLoaded ? "block" : "none"}
-  style="--container-height: {height}px; --container-width: {$containerWidthStore}px; --handle-size: 2.5rem; --slider-width: {sliderWidth}px; --slider-position: {sliderPosition};"
+  style="--container-height: {height}px; --container-width: {$containerWidthStore}px; --slider-width: {sliderWidth}px; --slider-position: {sliderPosition};"
 >
   <img
     bind:this={imageLeftRef}
@@ -182,7 +200,8 @@
     cursor: ew-resize;
     position: absolute;
     left: calc(
-      var(--container-width) * var(--slider-position) - var(--handle-size) / 2
+      var(--container-width) * var(--slider-position) -
+        var(--handle-size, 2.5rem) / 2
     );
     top: 0;
   }
@@ -206,21 +225,21 @@
     border-radius: 100%;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
       0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    height: var(--handle-size);
-    width: var(--handle-size);
+    height: var(--handle-size, 2.5rem);
+    width: var(--handle-size, 2.5rem);
   }
 
   .left-arrow {
-    border: inset calc(var(--handle-size) * 0.15) rgba(0, 0, 0, 0);
-    border-right: calc(var(--handle-size) * 0.15) solid #ffffff;
+    border: inset calc(var(--handle-size, 2.5rem) * 0.15) rgba(0, 0, 0, 0);
+    border-right: calc(var(--handle-size, 2.5rem) * 0.15) solid #ffffff;
     height: 0;
-    margin-right: calc(var(--handle-size) * 0.25);
+    margin-right: calc(var(--handle-size, 2.5rem) * 0.25);
     width: 0;
   }
 
   .right-arrow {
-    border: inset calc(var(--handle-size) * 0.15) rgba(0, 0, 0, 0);
-    border-left: calc(var(--handle-size) * 0.15) solid #ffffff;
+    border: inset calc(var(--handle-size, 2.5rem) * 0.15) rgba(0, 0, 0, 0);
+    border-left: calc(var(--handle-size, 2.5rem) * 0.15) solid #ffffff;
     height: 0;
     width: 0;
   }

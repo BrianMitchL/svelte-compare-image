@@ -111,6 +111,8 @@
     imageLeftAlt="left"
     imageRightSrc="https://via.placeholder.com/{rightWidth}x{rightHeight}/00aaff/ffffff?text=Right"
     imageRightAlt="right"
+    sliderWidth="2"
+    --handle-size="2.5rem"
   />
 </div>
 
