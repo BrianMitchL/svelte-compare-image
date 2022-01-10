@@ -63,8 +63,7 @@
     // account for horizontal window scroll
     const cursorX = pageX - window.scrollX;
 
-    // Calc Cursor Position from the:
-    // - left edge of the image(for horizontal)
+    // get the cursor position from the left edge of the image
     const imagePosition = imageRightRef?.getBoundingClientRect()?.left ?? 0;
     const targetPos = cursorX - imagePosition;
     const minPos = sliderWidth / 2;
@@ -86,16 +85,27 @@
     window.removeEventListener("mousemove", handleSliding);
     window.removeEventListener("touchmove", handleSliding);
   };
+
+  const keyDown = (e: KeyboardEvent) => {
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      sliderPosition = Math.max(sliderPosition - 0.1, 0);
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      sliderPosition = Math.min(sliderPosition + 0.1, 1);
+    }
+  };
 </script>
 
-<button on:click={() => containerRef.focus()}>Focus</button>
 <div
   bind:this={containerRef}
   on:touchstart|preventDefault={slideStart}
   on:touchend={slideEnd}
-  on:mousedown|preventDefault={slideStart}
+  on:mousedown={slideStart}
   on:mouseup={slideEnd}
+  on:keydown={keyDown}
   class="compare-image-container"
+  tabindex="0"
   style:display={leftLoaded && rightLoaded ? "block" : "none"}
   style="--container-height: {height}px; --container-width: {$containerWidthStore}px; --handle-size: 2.5rem; --slider-width: {sliderWidth}px; --slider-position: {sliderPosition};"
 >
