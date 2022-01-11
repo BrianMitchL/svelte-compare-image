@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <link rel="icon" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Svelte Compare Image</title>
+
+		
+
+		<link rel="stylesheet" href="/svelte-compare-image/_app/assets/start-61d1577b.css">
+		<link rel="stylesheet" href="/svelte-compare-image/_app/assets/pages/__layout.svelte-54e0ca25.css">
+		<link rel="stylesheet" href="/svelte-compare-image/_app/assets/pages/index.svelte-28f8dc6e.css">
+		<link rel="modulepreload" href="/svelte-compare-image/_app/start-75cf0460.js">
+		<link rel="modulepreload" href="/svelte-compare-image/_app/chunks/vendor-79c57316.js">
+		<link rel="modulepreload" href="/svelte-compare-image/_app/pages/__layout.svelte-59820c1a.js">
+		<link rel="modulepreload" href="/svelte-compare-image/_app/pages/index.svelte-713abe94.js">
+
+		<script type="module">
+			import { start } from "/svelte-compare-image/_app/start-75cf0460.js";
+			start({
+				target: document.querySelector("#svelte"),
+				paths: {"base":"/svelte-compare-image","assets":"/svelte-compare-image"},
+				session: {},
+				route: true,
+				spa: false,
+				trailing_slash: "never",
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/svelte-compare-image/_app/pages/__layout.svelte-59820c1a.js"),
+						import("/svelte-compare-image/_app/pages/index.svelte-713abe94.js")
+					],
+					url: new URL("http://prerender/"),
+					params: {}
+				}
+			});
+		</script>
+  </head>
+  <body>
+    <div id="svelte">
+
+
+<main class="svelte-c23oiq">
+
+<h1>Svelte Compare Image</h1>
+<p>A component to compare two images by dragging a slider to reveal the other
+  image. Find the source at <a href="https://github.com/BrianMitchL/svelte-compare-image">https://github.com/BrianMitchL/svelte-compare-image</a>
+  and on NPM at
+  <a href="https://npmjs.com/package/svelte-compare-image"><code>svelte-compare-image</code></a>.
+</p>
+<p>The markup, state logic, and styling were originally adapted from <a href="https://github.com/junkboy0315/react-compare-image">react-compare-image</a>.
+</p>
+
+<div class="image-resizers svelte-np5uii"><fieldset aria-describedby="left-dimensions" class="svelte-np5uii"><legend>Left Image Size</legend>
+    <div><label for="left-image-height">Height</label>
+      <input id="left-image-height" type="range" min="100" max="1000" value="400"></div>
+    <div><label for="left-image-width">Width</label>
+      <input id="left-image-width" type="range" min="100" max="1000" value="600"></div>
+    <p id="left-dimensions" class="svelte-np5uii">Dimensions are <code>400px x 600px</code></p></fieldset>
+  <fieldset aria-describedby="right-dimensions" class="svelte-np5uii"><legend>Right Image Size</legend>
+    <div><label for="right-image-height">Height</label>
+      <input id="right-image-height" type="range" min="100" max="1000" value="400"></div>
+    <div><label for="right-image-width">Width</label>
+      <input id="right-image-width" type="range" min="100" max="1000" value="600"></div>
+    <p id="right-dimensions" class="svelte-np5uii">Dimensions are <code>400px x 600px</code></p></fieldset></div>
+
+<div class="wrapper svelte-np5uii"><div style="display: contents; --handle-size:2.5rem;"><div class="compare-image-container svelte-1e9bn28" tabindex="0" style:display="none" style="--container-height: 0px; --container-width: 0px; --slider-width: 2px; --slider-position: 0.5;"><img src="https://via.placeholder.com/600x400/ffaa00/ffffff/?text=Left" alt="left" class="left-img svelte-1e9bn28">
+  <img src="https://via.placeholder.com/600x400/00aaff/ffffff?text=Right" alt="right" class="right-img svelte-1e9bn28">
+  <div class="slider svelte-1e9bn28" aria-hidden="true"><div class="line svelte-1e9bn28"></div>
+    <div class="handle svelte-1e9bn28"><div class="left-arrow svelte-1e9bn28"></div>
+      <div class="right-arrow svelte-1e9bn28"></div></div>
+    <div class="line svelte-1e9bn28"></div></div>
+</div></div>
+</div></main>
+
+<footer class="svelte-c23oiq"><p>Made by Brian Mitchell - <a href="https://brianm.me" class="svelte-c23oiq">brianm.me</a></p>
+</footer>
+
+</div>
+  </body>
+</html>
