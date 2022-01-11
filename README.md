@@ -11,7 +11,7 @@ The component will display the images and fill available width and height using 
 
 To use it, render the component as seen below. The `sliderWidth` (width in pixels) and `--handle-size` (any CSS size unit) props are optional.
 
-```sveltehtml
+```svelte
 <script lang="ts">
   import CompareImage from "svelte-compare-image/CompareImage.svelte";
 </script>

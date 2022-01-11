@@ -4,23 +4,23 @@
   /**
    * src attribute of the left HTMLImageElement
    */
-  export let imageLeftSrc: string = "";
+  export let imageLeftSrc = "";
   /**
    * alt text for the left image
    */
-  export let imageLeftAlt: string = "";
+  export let imageLeftAlt = "";
   /**
    * src attribute of the right HTMLImageElement
    */
-  export let imageRightSrc: string = "";
+  export let imageRightSrc = "";
   /**
    * alt text for the left image
    */
-  export let imageRightAlt: string = "";
+  export let imageRightAlt = "";
   /**
    * width of slider line in pixels
    */
-  export let sliderWidth: number = 2;
+  export let sliderWidth = 2;
 
   function syncWidth(el: HTMLElement | null) {
     return writable(0, (set) => {
@@ -70,7 +70,7 @@
     }
   }
 
-  let sliderPosition: number = 0.5;
+  let sliderPosition = 0.5;
 
   function handleSliding(e: TouchEvent | MouseEvent) {
     // touch/cursor from left of viewport
@@ -124,7 +124,6 @@
   on:keydown={keyDown}
   class="compare-image-container"
   tabindex="0"
-  style:display={leftLoaded && rightLoaded ? "block" : "none"}
   style="--container-height: {height}px; --container-width: {$containerWidthStore}px; --slider-width: {sliderWidth}px; --slider-position: {sliderPosition};"
 >
   <img

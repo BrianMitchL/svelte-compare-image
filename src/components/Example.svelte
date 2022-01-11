@@ -6,35 +6,35 @@
   let rightHeight = 400;
   let rightWidth = 600;
 
-  const debounce = (node) => {
+  const debounce = (node: HTMLInputElement) => {
     let timer: number;
 
-    const handleChange = (e: InputEvent) => {
-      const { value } = e.target;
+    function handleChange(e: Event) {
+      const { valueAsNumber, id } = e.target as HTMLInputElement;
 
       clearTimeout(timer);
 
       timer = window.setTimeout(() => {
-        switch ((e.target as Element).id) {
+        switch (id) {
           case "left-image-height": {
-            leftHeight = value;
+            leftHeight = valueAsNumber;
             break;
           }
           case "left-image-width": {
-            leftWidth = value;
+            leftWidth = valueAsNumber;
             break;
           }
           case "right-image-height": {
-            rightHeight = value;
+            rightHeight = valueAsNumber;
             break;
           }
           case "right-image-width": {
-            rightWidth = value;
+            rightWidth = valueAsNumber;
             break;
           }
         }
       }, 300);
-    };
+    }
 
     node.addEventListener("input", handleChange);
 
@@ -111,7 +111,7 @@
     imageLeftAlt="left"
     imageRightSrc="https://via.placeholder.com/{rightWidth}x{rightHeight}/00aaff/ffffff?text=Right"
     imageRightAlt="right"
-    sliderWidth="2"
+    sliderWidth={2}
     --handle-size="2.5rem"
   />
 </div>
