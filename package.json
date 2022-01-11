@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "author": "Brian Mitchell",
   "license": "MIT",
+  "description": "A component to compare two images by dragging a slider to reveal the other image",
   "keywords": [
     "svelte",
     "compare",
