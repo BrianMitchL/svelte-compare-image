@@ -7,11 +7,15 @@
     "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
+  --background-color: #ffffff;
+  --text-color: #18181b;
   --accent-color: #7c3aed;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --background-color: #18181b;
+    --text-color: #ffffff;
     --accent-color: #c4b5fd;
   }
 }
@@ -26,6 +30,11 @@ html,
 body,
 #svelte {
   height: 100%;
+}
+
+html {
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 body {
