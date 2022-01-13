@@ -74,16 +74,13 @@
 
   function handleSliding(e: TouchEvent | MouseEvent) {
     // touch/cursor from left of viewport
-    const pageX = "touches" in e ? e.touches[0].pageX : e.pageX;
-    // account for horizontal window scroll
-    const cursorX = pageX - window.scrollX;
-
-    // get the cursor position from the left edge of the image
-    const imagePosition = imageRightRef?.getBoundingClientRect()?.left ?? 0;
-    const targetPos = cursorX - imagePosition;
-    const minPos = sliderWidth / 2;
-    const maxPos = $containerWidthStore - sliderWidth / 2;
-    const clampedPos = Math.min(Math.max(targetPos, minPos), maxPos);
+    const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
+    // get the left image position within the viewport
+    const imagePosition = imageRightRef?.getBoundingClientRect().left ?? 0;
+    // subtract the image from the client to get the relative client position
+    // from the left edge of the image
+    const targetPos = clientX - imagePosition;
+    const clampedPos = Math.min(Math.max(targetPos, 0), $containerWidthStore);
 
     sliderPosition = clampedPos / $containerWidthStore;
   }
