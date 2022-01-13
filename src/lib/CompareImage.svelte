@@ -70,6 +70,7 @@
     }
   }
 
+  let sliderRef: HTMLDivElement | null = null;
   let sliderPosition = 0.5;
 
   function handleSliding(e: TouchEvent | MouseEvent) {
@@ -88,7 +89,7 @@
   function slideStart(e: TouchEvent | MouseEvent) {
     // we prevent default, but still want to focus on the container
     // so that interaction behavior is consistent, and we see keyboard events
-    containerRef?.focus();
+    sliderRef?.focus();
     // Slide the image even if you just click or tap (not drag)
     handleSliding(e);
 
@@ -102,12 +103,13 @@
   }
 
   function keyDown(e: KeyboardEvent) {
-    if (e.key === "ArrowLeft") {
+    if (e.key === "ArrowLeft" || e.key === "ArrowDown") {
       e.preventDefault();
-      sliderPosition = Math.max(sliderPosition - 0.1, 0);
-    } else if (e.key === "ArrowRight") {
+      // convert to integers for math to keep it a little more rounded
+      sliderPosition = Math.max((sliderPosition * 10 - 1) / 10, 0);
+    } else if (e.key === "ArrowRight" || e.key === "ArrowUp") {
       e.preventDefault();
-      sliderPosition = Math.min(sliderPosition + 0.1, 1);
+      sliderPosition = Math.min((sliderPosition * 10 + 1) / 10, 1);
     }
   }
 </script>
@@ -118,10 +120,9 @@
   on:touchend={slideEnd}
   on:mousedown|preventDefault={slideStart}
   on:mouseup={slideEnd}
-  on:keydown={keyDown}
-  class="compare-image-container"
-  tabindex="0"
+  class="svelte-compare-image-container"
   style="--container-height: {height}px; --container-width: {$containerWidthStore}px; --slider-width: {sliderWidth}px; --slider-position: {sliderPosition};"
+  data-testid="svelte-compare-image"
 >
   <img
     bind:this={imageLeftRef}
@@ -141,23 +142,36 @@
       rightLoaded = true;
     }}
   />
-  <div class="slider" aria-hidden="true">
+  <div
+    class="slider"
+    role="slider"
+    aria-valuemin={0}
+    aria-valuemax={1}
+    aria-valuenow={sliderPosition}
+    aria-label="Compare image"
+    bind:this={sliderRef}
+    on:keydown={keyDown}
+    tabindex="0"
+  >
     <div class="line" />
-    <div class="handle">
-      <div class="left-arrow" />
-      <div class="right-arrow" />
-    </div>
+    <div class="handle" />
     <div class="line" />
   </div>
 </div>
 
 <style>
-  .compare-image-container {
+  .svelte-compare-image-container {
     box-sizing: border-box;
     position: relative;
     width: 100%;
     height: var(--container-height);
     overflow: hidden;
+  }
+
+  .svelte-compare-image-container:focus-within {
+    outline: auto 4px rgba(59, 153, 252, 0.7);
+    outline: auto 4px -moz-mac-focusring;
+    outline: auto 4px -webkit-focus-ring-color;
   }
 
   img {
@@ -202,6 +216,10 @@
     top: 0;
   }
 
+  .slider:focus {
+    outline: none;
+  }
+
   .line {
     background: #ffffff;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -225,7 +243,8 @@
     width: var(--handle-size, 2.5rem);
   }
 
-  .left-arrow {
+  .handle::before {
+    content: "";
     border: inset calc(var(--handle-size, 2.5rem) * 0.15) rgba(0, 0, 0, 0);
     border-right: calc(var(--handle-size, 2.5rem) * 0.15) solid #ffffff;
     height: 0;
@@ -233,7 +252,8 @@
     width: 0;
   }
 
-  .right-arrow {
+  .handle::after {
+    content: "";
     border: inset calc(var(--handle-size, 2.5rem) * 0.15) rgba(0, 0, 0, 0);
     border-left: calc(var(--handle-size, 2.5rem) * 0.15) solid #ffffff;
     height: 0;
