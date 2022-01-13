@@ -50,44 +50,35 @@
   <fieldset aria-describedby="left-dimensions">
     <legend>Left Image Size</legend>
     <div>
-      <label for="left-image-height">Height</label>
-      <input
-        id="left-image-height"
-        type="range"
-        min="100"
-        max="1000"
-        value={leftHeight}
-        use:debounce
-      />
-    </div>
-    <div>
       <label for="left-image-width">Width</label>
       <input
         id="left-image-width"
         type="range"
         min="100"
         max="1000"
+        step="50"
         value={leftWidth}
         use:debounce
       />
     </div>
+    <div>
+      <label for="left-image-height">Height</label>
+      <input
+        id="left-image-height"
+        type="range"
+        min="100"
+        max="1000"
+        step="50"
+        value={leftHeight}
+        use:debounce
+      />
+    </div>
     <p id="left-dimensions">
-      Dimensions are <code>{leftHeight}px x {leftWidth}px</code>
+      Dimensions are <code>{leftWidth}px x {leftHeight}px</code>
     </p>
   </fieldset>
   <fieldset aria-describedby="right-dimensions">
     <legend>Right Image Size</legend>
-    <div>
-      <label for="right-image-height">Height</label>
-      <input
-        id="right-image-height"
-        type="range"
-        min="100"
-        max="1000"
-        value={rightHeight}
-        use:debounce
-      />
-    </div>
     <div>
       <label for="right-image-width">Width</label>
       <input
@@ -95,12 +86,25 @@
         type="range"
         min="100"
         max="1000"
+        step="50"
         value={rightWidth}
         use:debounce
       />
     </div>
+    <div>
+      <label for="right-image-height">Height</label>
+      <input
+        id="right-image-height"
+        type="range"
+        min="100"
+        max="1000"
+        step="50"
+        value={rightHeight}
+        use:debounce
+      />
+    </div>
     <p id="right-dimensions">
-      Dimensions are <code>{rightHeight}px x {rightWidth}px</code>
+      Dimensions are <code>{rightWidth}px x {rightHeight}px</code>
     </p>
   </fieldset>
 </div>
@@ -125,6 +129,7 @@
   fieldset {
     flex: 1 1 auto;
   }
+
   fieldset p {
     margin: 0;
   }

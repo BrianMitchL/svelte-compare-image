@@ -4,6 +4,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:testing-library/dom",
     "prettier",
   ],
   plugins: ["svelte3", "@typescript-eslint"],

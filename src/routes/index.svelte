@@ -9,9 +9,8 @@
 <h1>Svelte Compare Image</h1>
 <p>
   A component to compare two images by dragging a slider to reveal the other
-  image. Find the source at <a
-    href="https://github.com/BrianMitchL/svelte-compare-image"
-    >https://github.com/BrianMitchL/svelte-compare-image</a
+  image. Find the source on <a
+    href="https://github.com/BrianMitchL/svelte-compare-image">GitHub</a
   >
   and on NPM at
   <a href="https://npmjs.com/package/svelte-compare-image"
