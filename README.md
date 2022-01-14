@@ -9,7 +9,7 @@ An interactive example can be found at https://brianm.me/svelte-compare-image/
 
 The component will display the images and fill available width and height using a ResizeObserver according to the aspect ratios of the images.
 
-To use it, render the component as seen below. The `sliderWidth` (width in pixels) and `--handle-size` (any CSS size unit) props are optional.
+To use it, render the component as seen below. The `--slider-width` and `--handle-size` CSS custom property props are optional and default to 0.125rem and 2.5rem, respectfully.
 
 ```svelte
 <script lang="ts">
@@ -21,7 +21,7 @@ To use it, render the component as seen below. The `sliderWidth` (width in pixel
   imageLeftAlt="left"
   imageRightSrc="https://via.placeholder.com/600x400/00aaff/ffffff?text=Right"
   imageRightAlt="right"
-  sliderWidth="2"
+  --slider-width="0.125rem"
   --handle-size="2.5rem"
 />
 ```

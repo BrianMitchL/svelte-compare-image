@@ -17,10 +17,6 @@
    * alt text for the left image
    */
   export let imageRightAlt = "";
-  /**
-   * width of slider line in pixels
-   */
-  export let sliderWidth = 2;
 
   function syncWidth(el: HTMLElement | null) {
     return writable(0, (set) => {
@@ -121,7 +117,7 @@
   on:mousedown|preventDefault={slideStart}
   on:mouseup={slideEnd}
   class="svelte-compare-image-container"
-  style="--container-height: {height}px; --container-width: {$containerWidthStore}px; --slider-width: {sliderWidth}px; --slider-position: {sliderPosition};"
+  style="--container-height: {height}px; --container-width: {$containerWidthStore}px; --slider-position: {sliderPosition};"
   data-testid="svelte-compare-image"
 >
   <img
@@ -226,7 +222,7 @@
       0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     flex: 0 1 auto;
     height: 100%;
-    width: var(--slider-width);
+    width: var(--slider-width, 0.125rem);
   }
 
   .handle {
@@ -235,7 +231,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: var(--slider-width) solid #ffffff;
+    border: var(--slider-width, 0.125rem) solid #ffffff;
     border-radius: 100%;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
       0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);

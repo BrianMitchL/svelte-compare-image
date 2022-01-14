@@ -159,19 +159,6 @@ describe("CompareImage", () => {
     expect(screen.getByTestId("svelte-compare-image")).toHaveStyle({
       "--container-height": "4px",
       "--container-width": "6px",
-      "--slider-width": "2px",
-    });
-  });
-
-  it("sets style on the container element with a custom slider width", async () => {
-    await renderHelper({
-      sliderWidth: 7,
-    });
-
-    expect(screen.getByTestId("svelte-compare-image")).toHaveStyle({
-      "--container-height": "4px",
-      "--container-width": "6px",
-      "--slider-width": "7px",
     });
   });
 

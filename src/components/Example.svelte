@@ -115,7 +115,7 @@
     imageLeftAlt="left"
     imageRightSrc="https://via.placeholder.com/{rightWidth}x{rightHeight}/00aaff/ffffff?text=Right"
     imageRightAlt="right"
-    sliderWidth={2}
+    --slider-width="0.125rem"
     --handle-size="2.5rem"
   />
 </div>
