@@ -2,23 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="description" content="" />
-    <link rel="icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.png" />
+    <meta
+      name="description"
+      content="A Svelte component to compare two images"
+    />
+    <meta name="author" content="Brian Mitchell" />
+    <meta property="og:title" content="Svelte Compare Image" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://brianm.me/svelte-compare-image/" />
+    <meta property="og:description" content="" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@BrianMitchL" />
+    <meta name="twitter:title" content="Svelte Compare Image" />
+    <meta
+      name="twitter:description"
+      content="A Svelte component to compare two images"
+    />
     <title>Svelte Compare Image</title>
 
 		
 
 		<link rel="stylesheet" href="/svelte-compare-image/_app/assets/start-61d1577b.css">
 		<link rel="stylesheet" href="/svelte-compare-image/_app/assets/pages/__layout.svelte-237b0595.css">
-		<link rel="stylesheet" href="/svelte-compare-image/_app/assets/pages/index.svelte-030115ee.css">
-		<link rel="modulepreload" href="/svelte-compare-image/_app/start-0d84d56a.js">
+		<link rel="stylesheet" href="/svelte-compare-image/_app/assets/pages/index.svelte-d26c41a8.css">
+		<link rel="modulepreload" href="/svelte-compare-image/_app/start-e1254f29.js">
 		<link rel="modulepreload" href="/svelte-compare-image/_app/chunks/vendor-79c57316.js">
 		<link rel="modulepreload" href="/svelte-compare-image/_app/pages/__layout.svelte-59820c1a.js">
-		<link rel="modulepreload" href="/svelte-compare-image/_app/pages/index.svelte-acdce7ed.js">
+		<link rel="modulepreload" href="/svelte-compare-image/_app/pages/index.svelte-f385cde3.js">
 
 		<script type="module">
-			import { start } from "/svelte-compare-image/_app/start-0d84d56a.js";
+			import { start } from "/svelte-compare-image/_app/start-e1254f29.js";
 			start({
 				target: document.querySelector("#svelte"),
 				paths: {"base":"/svelte-compare-image","assets":"/svelte-compare-image"},
@@ -31,7 +47,7 @@
 					error: null,
 					nodes: [
 						import("/svelte-compare-image/_app/pages/__layout.svelte-59820c1a.js"),
-						import("/svelte-compare-image/_app/pages/index.svelte-acdce7ed.js")
+						import("/svelte-compare-image/_app/pages/index.svelte-f385cde3.js")
 					],
 					url: new URL("http://prerender/"),
 					params: {}
@@ -46,8 +62,7 @@
 <main class="svelte-c23oiq">
 
 <h1>Svelte Compare Image</h1>
-<p>A component to compare two images by dragging a slider to reveal the other
-  image. Find the source on <a href="https://github.com/BrianMitchL/svelte-compare-image">GitHub</a>
+<p>A Svelte component to compare two images. Find the source on <a href="https://github.com/BrianMitchL/svelte-compare-image">GitHub</a>
   and on NPM at
   <a href="https://npmjs.com/package/svelte-compare-image"><code>svelte-compare-image</code></a>.
 </p>
@@ -67,11 +82,11 @@
       <input id="right-image-height" type="range" min="100" max="1000" step="50" value="400"></div>
     <p id="right-dimensions" class="svelte-1w01u7y">Dimensions are <code>600px x 400px</code></p></fieldset></div>
 
-<div class="wrapper svelte-1w01u7y"><div style="display: contents; --slider-width:0.125rem; --handle-size:2.5rem;"><div class="svelte-compare-image-container svelte-1k11q44" style="--container-height: 0px; --container-width: 0px; --slider-position: 0.5;" data-testid="svelte-compare-image"><img src="https://via.placeholder.com/600x400/ffaa00/ffffff/?text=Left" alt="left" class="left-img svelte-1k11q44">
-  <img src="https://via.placeholder.com/600x400/00aaff/ffffff?text=Right" alt="right" class="right-img svelte-1k11q44">
-  <div class="slider svelte-1k11q44" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.5" aria-label="Compare image" tabindex="0"><div class="line svelte-1k11q44"></div>
-    <div class="handle svelte-1k11q44"></div>
-    <div class="line svelte-1k11q44"></div></div>
+<div class="wrapper svelte-1w01u7y"><div style="display: contents; --handle-size:2.5rem; --slider-color:#ffffff; --slider-width:0.125rem;"><div class="svelte-compare-image-container svelte-qgpj5s" style="--container-height: 0px; --container-width: 0px; --slider-position: 0.5;" data-testid="svelte-compare-image"><img src="https://via.placeholder.com/600x400/ffaa00/ffffff/?text=Left" alt="left" class="left-img svelte-qgpj5s">
+  <img src="https://via.placeholder.com/600x400/00aaff/ffffff?text=Right" alt="right" class="right-img svelte-qgpj5s">
+  <div class="slider svelte-qgpj5s" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.5" aria-label="Compare image" tabindex="0"><div class="line svelte-qgpj5s"></div>
+    <div class="handle svelte-qgpj5s"></div>
+    <div class="line svelte-qgpj5s"></div></div>
 </div></div>
 </div></main>
 
