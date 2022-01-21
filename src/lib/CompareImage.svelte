@@ -217,7 +217,7 @@
   }
 
   .line {
-    background: #ffffff;
+    background: var(--slider-color, #ffffff);
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
       0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
     flex: 0 1 auto;
@@ -231,7 +231,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: var(--slider-width, 0.125rem) solid #ffffff;
+    border: var(--slider-width, 0.125rem) solid var(--slider-color, #ffffff);
     border-radius: 100%;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
       0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -242,7 +242,8 @@
   .handle::before {
     content: "";
     border: inset calc(var(--handle-size, 2.5rem) * 0.15) rgba(0, 0, 0, 0);
-    border-right: calc(var(--handle-size, 2.5rem) * 0.15) solid #ffffff;
+    border-right: calc(var(--handle-size, 2.5rem) * 0.15) solid
+      var(--slider-color, #ffffff);
     height: 0;
     margin-right: calc(var(--handle-size, 2.5rem) * 0.25);
     width: 0;
@@ -251,7 +252,8 @@
   .handle::after {
     content: "";
     border: inset calc(var(--handle-size, 2.5rem) * 0.15) rgba(0, 0, 0, 0);
-    border-left: calc(var(--handle-size, 2.5rem) * 0.15) solid #ffffff;
+    border-left: calc(var(--handle-size, 2.5rem) * 0.15) solid
+      var(--slider-color, #ffffff);
     height: 0;
     width: 0;
   }

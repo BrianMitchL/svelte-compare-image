@@ -1,15 +1,26 @@
 # svelte-compare-image
 
-A component to compare two images by dragging a slider to reveal the other
-image. Find the package on NPM at [svelte-compare-image](https://npmjs.com/package/svelte-compare-image).
+A Svelte component to compare two images.
+Find the package on NPM at [svelte-compare-image](https://npmjs.com/package/svelte-compare-image).
 
 An interactive example can be found at https://brianm.me/svelte-compare-image/
+
+![screen recording example](https://github.com/BrianMitchL/svelte-compare-image/raw/main/example.gif)
+
+The markup, state logic, and styling were originally adapted from [react-compare-image](https://github.com/junkboy0315/react-compare-image).
 
 ## Docs
 
 The component will display the images and fill available width and height using a ResizeObserver according to the aspect ratios of the images.
 
-To use it, render the component as seen below. The `--slider-width` and `--handle-size` CSS custom property props are optional and default to 0.125rem and 2.5rem, respectfully.
+To use it, render the component as seen below, providing image src and alt text for the left and right images.
+The following CSS custom properties are optional and can be set to customize the appearance of the slider.
+
+| Property         | Default Value |
+| ---------------- | ------------- |
+| `--handle-size`  | `2.5rem`      |
+| `--slider-color` | `#ffffff`     |
+| `--slider-width` | `0.125rem`    |
 
 ```svelte
 <script lang="ts">
@@ -21,7 +32,8 @@ To use it, render the component as seen below. The `--slider-width` and `--handl
   imageLeftAlt="left"
   imageRightSrc="https://via.placeholder.com/600x400/00aaff/ffffff?text=Right"
   imageRightAlt="right"
-  --slider-width="0.125rem"
   --handle-size="2.5rem"
+  --slider-color="#ffffff"
+  --slider-width="0.125rem"
 />
 ```

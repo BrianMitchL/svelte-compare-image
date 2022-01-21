@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "Brian Mitchell",
   "license": "MIT",
-  "description": "A component to compare two images by dragging a slider to reveal the other image",
+  "description": "A Svelte component to compare two images",
   "keywords": [
     "svelte",
     "compare",
@@ -56,6 +56,6 @@
     "pre-commit": "npm run prettier-staged"
   },
   "engines": {
-    "node": ">16.13.0"
+    "node": ">=16.13.0"
   }
 }
