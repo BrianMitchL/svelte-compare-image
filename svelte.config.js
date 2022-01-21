@@ -1,5 +1,6 @@
 import adapter from "@sveltejs/adapter-static";
 import preprocess from "svelte-preprocess";
+import mm from "micromatch";
 
 const dev = process.env.NODE_ENV === "development";
 
@@ -17,6 +18,17 @@ const config = {
 
     // hydrate the <div id="svelte"> element in src/app.html
     target: "#svelte",
+    package: {
+      exports: (filepath) => {
+        if (mm.isMatch(filepath, "**/*.spec.{ts,js}")) return false;
+        return mm.isMatch(filepath, [
+          "!**/_*",
+          "!**/internal/**",
+          "!**/*.spec.{ts,js}",
+        ]);
+      },
+      files: mm.matcher("!**/?(build.*)*.spec.{ts,js}"),
+    },
   },
 };
 

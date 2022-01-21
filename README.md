@@ -24,6 +24,8 @@ The following CSS custom properties are optional and can be set to customize the
 
 ```svelte
 <script lang="ts">
+  import { CompareImage } from "svelte-compare-image";
+  // or
   import CompareImage from "svelte-compare-image/CompareImage.svelte";
 </script>
 
