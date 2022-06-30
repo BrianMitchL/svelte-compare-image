@@ -12,10 +12,12 @@ const magenta =
 const yellow6x10 =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAYAAACXDi8zAAAAE0lEQVR42mP8/5/hPwMWwDjcJQDOYx3t9hEGagAAAABJRU5ErkJggg==";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function renderHelper(props?: Record<string, any>) {
   let listener: ((entry: ResizeObserverEntry[]) => void) | undefined =
     undefined;
   /* good god, the hacks in here to get these tests to run in jsdom 😬 */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (window as any).ResizeObserver = class ResizeObserver {
     constructor(ls: (entry: ResizeObserverEntry[]) => void) {
       listener = ls;
@@ -62,6 +64,7 @@ async function renderHelper(props?: Record<string, any>) {
   await fireEvent.load(screen.getByAltText("right-alt"));
 
   await act(() => {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     listener!([
       {
         target: {
