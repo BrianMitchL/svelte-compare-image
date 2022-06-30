@@ -1,11 +1,13 @@
-name: Build, Test, and Deploy Docs Site
+name: Build and Test Docs Site
 
+# run on all branches except main, where the deploy workflow runs
 on:
   push:
-    branches: [main]
+    branches-ignore:
+      - "main"
 
 jobs:
-  deploy:
+  build-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,9 +21,3 @@ jobs:
         run: npm run build
       - name: Run tests
         run: npm run test
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./build

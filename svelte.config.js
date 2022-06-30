@@ -14,10 +14,11 @@ const config = {
     paths: {
       base: dev ? "" : "/svelte-compare-image",
     },
+    prerender: {
+      default: true,
+    },
     adapter: adapter(),
 
-    // hydrate the <div id="svelte"> element in src/app.html
-    target: "#svelte",
     package: {
       exports: (filepath) => {
         if (mm.isMatch(filepath, "**/*.spec.{ts,js}")) return false;

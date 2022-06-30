@@ -27,5 +27,6 @@
       "useESM": true
     }
   },
-  "testEnvironment": "jsdom"
+  "testEnvironment": "jsdom",
+  "reporters": ["default", "github-actions"]
 }
