@@ -1,4 +1,4 @@
-name: Build and Deploy Docs Site
+name: Build, Test, and Deploy Docs Site
 
 on:
   push:
@@ -17,6 +17,8 @@ jobs:
         uses: bahmutov/npm-install@v1
       - name: Build site
         run: npm run build
+      - name: Run tests
+        run: npm run test
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
