@@ -1,0 +1,23 @@
+name: Build and Test Docs Site
+
+# run on all branches except main, where the deploy workflow runs
+on:
+  push:
+    branches-ignore:
+      - "main"
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "16.x"
+      - name: Install deps (with cache)
+        uses: bahmutov/npm-install@v1
+      - name: Build site
+        run: npm run build
+      - name: Run tests
+        run: npm run test
