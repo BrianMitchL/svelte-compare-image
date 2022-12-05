@@ -1,6 +1,6 @@
-import { jest } from "@jest/globals";
+import { vi } from "vitest";
 import { act, render, screen, fireEvent } from "@testing-library/svelte";
-import CompareImage from "./CompareImage.svelte";
+import CompareImage from "$lib/CompareImage.svelte";
 
 // all 6px x 4px
 const orange =
@@ -39,22 +39,22 @@ async function renderHelper(props?: Record<string, any>) {
   });
 
   // the images are 6px x 4px, and let's say they're in a container with 2px padding
-  jest
+  vi
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     .spyOn(screen.getByAltText("left-alt"), "naturalWidth", "get")
     .mockReturnValue(6);
-  jest
+  vi
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     .spyOn(screen.getByAltText("left-alt"), "naturalHeight", "get")
     .mockReturnValue(4);
-  jest
+  vi
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     .spyOn(screen.getByAltText("right-alt"), "naturalWidth", "get")
     .mockReturnValue(6);
-  jest
+  vi
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     .spyOn(screen.getByAltText("right-alt"), "naturalHeight", "get")
@@ -83,23 +83,25 @@ async function renderHelper(props?: Record<string, any>) {
     ]);
   });
 
-  jest
-    .spyOn(screen.getByAltText("left-alt"), "getBoundingClientRect")
-    .mockReturnValue({
-      width: 6,
-      height: 4,
-      top: 2,
-      left: 2,
-    } as DOMRect);
+  vi.spyOn(
+    screen.getByAltText("left-alt"),
+    "getBoundingClientRect"
+  ).mockReturnValue({
+    width: 6,
+    height: 4,
+    top: 2,
+    left: 2,
+  } as DOMRect);
 
-  jest
-    .spyOn(screen.getByAltText("right-alt"), "getBoundingClientRect")
-    .mockReturnValue({
-      width: 6,
-      height: 4,
-      top: 2,
-      left: 2,
-    } as DOMRect);
+  vi.spyOn(
+    screen.getByAltText("right-alt"),
+    "getBoundingClientRect"
+  ).mockReturnValue({
+    width: 6,
+    height: 4,
+    top: 2,
+    left: 2,
+  } as DOMRect);
 
   return view;
 }

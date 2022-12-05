@@ -1,4 +1,4 @@
-import { jest } from "@jest/globals";
+import { vi } from "vitest";
 import {
   act,
   fireEvent,
@@ -6,7 +6,7 @@ import {
   screen,
   within,
 } from "@testing-library/svelte";
-import Example from "./Example.svelte";
+import Example from "../components/Example.svelte";
 
 function getRangeInput(image: "Left" | "Right", dimension: "Width" | "Height") {
   return within(
@@ -16,12 +16,12 @@ function getRangeInput(image: "Left" | "Right", dimension: "Width" | "Height") {
 
 describe("Example", () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     render(Example);
   });
 
   afterEach(() => {
-    jest.useRealTimers();
+    vi.useRealTimers();
   });
 
   it("initializes with default dimensions", () => {
@@ -55,7 +55,7 @@ describe("Example", () => {
     expect(getRangeInput("Left", "Height")).toHaveValue("200");
 
     await act(() => {
-      jest.advanceTimersByTime(300);
+      vi.advanceTimersByTime(300);
     });
 
     expect(
@@ -81,7 +81,7 @@ describe("Example", () => {
     expect(getRangeInput("Right", "Height")).toHaveValue("200");
 
     await act(() => {
-      jest.advanceTimersByTime(300);
+      vi.advanceTimersByTime(300);
     });
 
     expect(

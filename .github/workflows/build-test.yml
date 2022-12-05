@@ -1,4 +1,4 @@
-name: Build and Test Docs Site
+name: Check, Lint, Build, Test Docs Site
 
 # run on all branches except main, where the deploy workflow runs
 on:
@@ -10,14 +10,18 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: "16.x"
-      - name: Install deps (with cache)
-        uses: bahmutov/npm-install@v1
+      - name: Install deps
+        run: npm ci
+      - name: Check Types
+        run: npm run check
+      - name: Lint
+        run: npm run lint
       - name: Build site
         run: npm run build
       - name: Run tests
-        run: npm run test
+        run: npm run test:unit
