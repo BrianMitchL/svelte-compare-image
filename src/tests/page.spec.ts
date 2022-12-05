@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/svelte";
-import Index from "./index.svelte";
+import Index from "../routes/+page.svelte";
 
-describe("index", () => {
+describe("index page", () => {
   beforeEach(() => {
     render(Index);
   });

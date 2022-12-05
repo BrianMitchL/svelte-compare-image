@@ -1,6 +1,6 @@
 import { vi } from "vitest";
 import { act, render, screen, fireEvent } from "@testing-library/svelte";
-import CompareImage from "./CompareImage.svelte";
+import CompareImage from "$lib/CompareImage.svelte";
 
 // all 6px x 4px
 const orange =

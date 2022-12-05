@@ -6,7 +6,7 @@ import {
   screen,
   within,
 } from "@testing-library/svelte";
-import Example from "./Example.svelte";
+import Example from "../components/Example.svelte";
 
 function getRangeInput(image: "Left" | "Right", dimension: "Width" | "Height") {
   return within(

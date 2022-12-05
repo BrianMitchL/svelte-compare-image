@@ -17,14 +17,13 @@
   },
   "scripts": {
     "dev": "vite dev",
-    "build": "svelte-kit sync && svelte-package",
+    "build": "svelte-kit sync && svelte-package && vite build",
     "prepublishOnly": "echo 'Did you mean to publish `./package/`, instead of `./`?' && exit 1",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test:unit": "vitest",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write .",
-    "package": "svelte-package",
     "prettier-staged": "pretty-quick --staged"
   },
   "devDependencies": {
@@ -61,21 +60,5 @@
   },
   "engines": {
     "node": ">=16.13.0"
-  },
-  "prettier": {
-    "plugins": [
-      "prettier-plugin-svelte"
-    ],
-    "pluginSearchDirs": [
-      "."
-    ],
-    "overrides": [
-      {
-        "files": "*.svelte",
-        "options": {
-          "parser": "svelte"
-        }
-      }
-    ]
   }
 }
