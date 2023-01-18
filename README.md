@@ -3,7 +3,7 @@
 A Svelte component to compare two images.
 Find the package on NPM at [svelte-compare-image](https://npmjs.com/package/svelte-compare-image).
 
-An interactive example can be found at https://brianm.me/svelte-compare-image/
+An interactive example can be found at https://projects.brianm.me/svelte-compare-image/
 
 ![screen recording example](https://github.com/BrianMitchL/svelte-compare-image/raw/main/example.gif)
 
