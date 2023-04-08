@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="/svelte-compare-image/favicon.png" />
+    <link rel="icon" href="./svelte-compare-image/favicon.png" />
     <meta
       name="description"
       content="A Svelte component to compare two images"
@@ -22,16 +22,17 @@
       content="A Svelte component to compare two images"
     />
     <meta http-equiv="content-security-policy" content="">
-		<link href="/svelte-compare-image/_app/immutable/assets/_layout-062bb922.css" rel="stylesheet">
-		<link href="/svelte-compare-image/_app/immutable/assets/_page-b3aee6ea.css" rel="stylesheet">
-		<link rel="modulepreload" href="/svelte-compare-image/_app/immutable/start-c4de6fe2.js">
-		<link rel="modulepreload" href="/svelte-compare-image/_app/immutable/chunks/index-ce6bdbae.js">
-		<link rel="modulepreload" href="/svelte-compare-image/_app/immutable/chunks/singletons-20474a0f.js">
-		<link rel="modulepreload" href="/svelte-compare-image/_app/immutable/chunks/index-46707c03.js">
-		<link rel="modulepreload" href="/svelte-compare-image/_app/immutable/components/pages/_layout.svelte-32215e73.js">
-		<link rel="modulepreload" href="/svelte-compare-image/_app/immutable/modules/pages/_layout.ts-b8ee4d7c.js">
-		<link rel="modulepreload" href="/svelte-compare-image/_app/immutable/chunks/_layout-1daba58d.js">
-		<link rel="modulepreload" href="/svelte-compare-image/_app/immutable/components/pages/_page.svelte-a6debfdb.js"><title>Svelte Compare Image</title><!-- HEAD_svelte-l9pt6u_START --><!-- HEAD_svelte-l9pt6u_END -->
+		<link href="./svelte-compare-image/_app/immutable/assets/_layout.062bb922.css" rel="stylesheet">
+		<link href="./svelte-compare-image/_app/immutable/assets/_page.b3aee6ea.css" rel="stylesheet">
+		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/entry/start.a9edb661.js">
+		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/chunks/index.af89a38d.js">
+		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/chunks/singletons.e9c2bc09.js">
+		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/chunks/index.2222ee83.js">
+		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/entry/app.58160e04.js">
+		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/entry/_layout.svelte.3b211868.js">
+		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/entry/_layout.ts.984db11e.js">
+		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/chunks/_layout.da46b06b.js">
+		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/entry/_page.svelte.8e3a76c8.js"><title>Svelte Compare Image</title><!-- HEAD_svelte-l9pt6u_START --><!-- HEAD_svelte-l9pt6u_END -->
   </head>
   <body>
     <div>
@@ -72,25 +73,31 @@
 </footer>
 
 
-		<script type="module" data-sveltekit-hydrate="accq8p">
-			import { start } from "/svelte-compare-image/_app/immutable/start-c4de6fe2.js";
+			
+			<script>
+				{
+					__sveltekit_1yqpxp5 = {
+						env: {},
+						assets: "/svelte-compare-image",
+						base: new URL("./svelte-compare-image", location).pathname,
+						element: document.currentScript.parentElement
+					};
 
-			start({
-				env: {},
-				hydrate: {
-					status: 200,
-					error: null,
-					node_ids: [0, 2],
-					params: {},
-					route: {"id":"/"},
-					data: [null,null],
-					form: null
-				},
-				paths: {"base":"/svelte-compare-image","assets":"/svelte-compare-image"},
-				target: document.querySelector('[data-sveltekit-hydrate="accq8p"]').parentNode,
-				version: "1674030069675"
-			});
-		</script>
-	</div>
+					const data = [null,null];
+
+					Promise.all([
+						import("./svelte-compare-image/_app/immutable/entry/start.a9edb661.js"),
+						import("./svelte-compare-image/_app/immutable/entry/app.58160e04.js")
+					]).then(([kit, app]) => {
+						kit.start(app, __sveltekit_1yqpxp5.element, {
+							node_ids: [0, 2],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
   </body>
 </html>
