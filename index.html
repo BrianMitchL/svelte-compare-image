@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="./svelte-compare-image/favicon.png" />
+    <link rel="icon" href="./favicon.png" />
     <meta
       name="description"
       content="A Svelte component to compare two images"
@@ -21,18 +21,16 @@
       name="twitter:description"
       content="A Svelte component to compare two images"
     />
-    <meta http-equiv="content-security-policy" content="">
-		<link href="./svelte-compare-image/_app/immutable/assets/_layout.062bb922.css" rel="stylesheet">
-		<link href="./svelte-compare-image/_app/immutable/assets/_page.b3aee6ea.css" rel="stylesheet">
-		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/entry/start.8b30fb3b.js">
-		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/chunks/index.af89a38d.js">
-		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/chunks/singletons.f1abdcfc.js">
-		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/chunks/index.2222ee83.js">
-		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/entry/app.72ec9d4d.js">
-		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/entry/_layout.svelte.3b211868.js">
-		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/entry/_layout.ts.984db11e.js">
-		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/chunks/_layout.da46b06b.js">
-		<link rel="modulepreload" href="./svelte-compare-image/_app/immutable/entry/_page.svelte.8e3a76c8.js"><title>Svelte Compare Image</title><!-- HEAD_svelte-l9pt6u_START --><!-- HEAD_svelte-l9pt6u_END -->
+    
+		<link href="./_app/immutable/assets/0.062bb922.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/2.b3aee6ea.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.1e92c3d5.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.d8b7ebd1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.de05be15.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.a4d5a6cb.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.24f0cee8.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.f6221beb.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.fdd1e90d.js"><title>Svelte Compare Image</title><!-- HEAD_svelte-l9pt6u_START --><!-- HEAD_svelte-l9pt6u_END -->
   </head>
   <body>
     <div>
@@ -76,20 +74,21 @@
 			
 			<script>
 				{
-					__sveltekit_1ql6vrp = {
-						env: {},
+					__sveltekit_1bkcahl = {
 						assets: "/svelte-compare-image",
-						base: new URL("./svelte-compare-image", location).pathname,
-						element: document.currentScript.parentElement
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
 					};
+
+					const element = document.currentScript.parentElement;
 
 					const data = [null,null];
 
 					Promise.all([
-						import("./svelte-compare-image/_app/immutable/entry/start.8b30fb3b.js"),
-						import("./svelte-compare-image/_app/immutable/entry/app.72ec9d4d.js")
+						import("./_app/immutable/entry/start.1e92c3d5.js"),
+						import("./_app/immutable/entry/app.24f0cee8.js")
 					]).then(([kit, app]) => {
-						kit.start(app, __sveltekit_1ql6vrp.element, {
+						kit.start(app, element, {
 							node_ids: [0, 2],
 							data,
 							form: null,
