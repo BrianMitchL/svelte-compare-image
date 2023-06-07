@@ -44,7 +44,19 @@
       },
     };
   };
+
+  $: snippet = `&lt;CompareImage
+  imageLeftSrc="https://via.placeholder.com/${leftWidth}x${leftHeight}/ffaa00/ffffff/?text=Left"
+  imageLeftAlt="left"
+  imageRightSrc="https://via.placeholder.com/${rightWidth}x${rightHeight}/00aaff/ffffff?text=Right"
+  imageRightAlt="right"
+  --handle-size="2.5rem"
+  --slider-color="#ffffff"
+  --slider-width="0.125rem"
+/&gt;`;
 </script>
+
+<h2>Example</h2>
 
 <div class="image-resizers">
   <fieldset aria-describedby="left-dimensions">
@@ -120,6 +132,12 @@
     --slider-width="0.125rem"
   />
 </div>
+
+<h3>Code Snippet</h3>
+<p>
+  The CSS Custom Properties are optional. The default values are used below.
+</p>
+<pre>{@html snippet}</pre>
 
 <style>
   .image-resizers {
