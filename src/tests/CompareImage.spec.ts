@@ -117,7 +117,7 @@ describe("CompareImage", () => {
     render(CompareImage);
 
     for (const image of screen.getAllByRole("img")) {
-      expect(image).toHaveAttribute("src", "");
+      expect(image).not.toHaveAttribute("src");
       expect(image).toHaveAttribute("alt", "");
     }
   });
