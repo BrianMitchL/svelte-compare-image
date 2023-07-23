@@ -137,6 +137,7 @@
 <p>
   The CSS Custom Properties are optional. The default values are used below.
 </p>
+<!--eslint-disable-next-line svelte/no-at-html-tags-->
 <pre>{@html snippet}</pre>
 
 <style>
