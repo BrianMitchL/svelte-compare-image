@@ -45,7 +45,7 @@
     };
   };
 
-  $: snippet = `&lt;CompareImage
+  $: snippet = `<CompareImage
   imageLeftSrc="https://via.placeholder.com/${leftWidth}x${leftHeight}/ffaa00/ffffff/?text=Left"
   imageLeftAlt="left"
   imageRightSrc="https://via.placeholder.com/${rightWidth}x${rightHeight}/00aaff/ffffff?text=Right"
@@ -53,7 +53,7 @@
   --handle-size="2.5rem"
   --slider-color="#ffffff"
   --slider-width="0.125rem"
-/&gt;`;
+ />`;
 </script>
 
 <h2>Example</h2>
@@ -137,7 +137,7 @@
 <p>
   The CSS Custom Properties are optional. The default values are used below.
 </p>
-<pre>{@html snippet}</pre>
+<pre>{snippet}</pre>
 
 <style>
   .image-resizers {

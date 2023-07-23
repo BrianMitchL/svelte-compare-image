@@ -110,6 +110,7 @@
   }
 </script>
 
+<!--eslint-disable-next-line svelte/valid-compile-->
 <div
   bind:this={containerRef}
   on:touchstart|preventDefault={slideStart}
