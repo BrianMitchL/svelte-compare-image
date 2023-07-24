@@ -2,6 +2,7 @@ import { vi } from "vitest";
 import { act, render, screen, fireEvent } from "@testing-library/svelte";
 import CompareImage from "$lib/CompareImage.svelte";
 import TestCompareImageWithSliderLabelSlot from "./TestCompareImageWithSliderLabelSlot.svelte";
+import type { ComponentType } from "svelte";
 
 // all 6px x 4px
 const orange =
@@ -14,7 +15,10 @@ const yellow6x10 =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAYAAACXDi8zAAAAE0lEQVR42mP8/5/hPwMWwDjcJQDOYx3t9hEGagAAAABJRU5ErkJggg==";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function renderHelper(component = CompareImage, props?: Record<string, any>) {
+function renderHelper(
+  component: ComponentType = CompareImage,
+  props?: Record<string, unknown>
+) {
   const view = render(component, {
     imageLeftSrc: orange,
     imageLeftAlt: "left-alt",

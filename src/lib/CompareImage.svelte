@@ -17,15 +17,19 @@
   export let imageRightAlt = "";
 
   // make sure this matches the default value attribute in the markup
-  let sliderPosition = 50;
-  let animationFrame = null;
+  let sliderPosition: number = 50;
+  let animationFrame: number | null = null;
 
-  function handleInput(e: InputEvent) {
+  function handleInput(e: Event) {
     if (animationFrame) cancelAnimationFrame(animationFrame);
 
     animationFrame = requestAnimationFrame(() => {
-      sliderPosition = e.target.value;
+      sliderPosition = (e.target as HTMLInputElement).valueAsNumber;
     });
+  }
+
+  function handleClick(e: Event) {
+    (e.target as HTMLInputElement).focus();
   }
 </script>
 
@@ -53,7 +57,7 @@
       value={sliderPosition}
       on:input={handleInput}
       on:change={handleInput}
-      on:click={(e) => e.target.focus()}
+      on:click={handleClick}
     />
   </label>
 </div>
