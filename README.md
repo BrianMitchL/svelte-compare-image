@@ -5,7 +5,7 @@ Find the package on NPM at [svelte-compare-image](https://npmjs.com/package/svel
 
 An interactive example can be found at https://projects.brianm.me/svelte-compare-image/
 
-![screen recording example](https://github.com/BrianMitchL/svelte-compare-image/raw/main/example.gif)
+![screen recording example](example.gif)
 
 Changes are run inside of `requestAnimationFrame` to improve performance and reduce lag.
 
@@ -33,9 +33,9 @@ Default thumb background image:
 url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 12H21M3 12L7 8M3 12L7 16M21 12L17 16M21 12L17 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>')
 ```
 
-It looks like this:
+It looks like this (shown with `darkgray` for viewing here, it is white in the component)
 
-<svg viewBox="0 0 24 24" height="72" width="72" fill="black" xmlns="http://www.w3.org/2000/svg"><path d="M3 12H21M3 12L7 8M3 12L7 16M21 12L17 16M21 12L17 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+![slider icon](slider-icon.svg)
 
 ### Slots
 
