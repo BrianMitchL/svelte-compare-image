@@ -80,6 +80,7 @@
     display: block;
     height: auto;
     width: 100%;
+    margin: 0;
   }
 
   .left-img {
@@ -144,6 +145,8 @@
     cursor: col-resize;
     margin: 0 calc(var(--handle-size, 2.5rem) / -2);
     width: calc(100% + var(--handle-size, 2.5rem));
+    padding: 0;
+    border-radius: 0;
     appearance: none;
     -webkit-appearance: none;
     background: none;
