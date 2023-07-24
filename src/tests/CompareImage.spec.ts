@@ -1,6 +1,7 @@
 import { vi } from "vitest";
 import { act, render, screen, fireEvent } from "@testing-library/svelte";
 import CompareImage from "$lib/CompareImage.svelte";
+import TestCompareImageWithSliderLabelSlot from "./TestCompareImageWithSliderLabelSlot.svelte";
 
 // all 6px x 4px
 const orange =
@@ -13,8 +14,8 @@ const yellow6x10 =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAYAAACXDi8zAAAAE0lEQVR42mP8/5/hPwMWwDjcJQDOYx3t9hEGagAAAABJRU5ErkJggg==";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function renderHelper(props?: Record<string, any>) {
-  const view = render(CompareImage, {
+function renderHelper(component = CompareImage, props?: Record<string, any>) {
+  const view = render(component, {
     imageLeftSrc: orange,
     imageLeftAlt: "left-alt",
     imageRightSrc: blue,
@@ -122,5 +123,19 @@ describe("CompareImage", () => {
     expect(screen.getByTestId("svelte-compare-image")).toHaveStyle(
       "--slider-position: 20%"
     );
+  });
+
+  it("has an accessible label for the slider", async () => {
+    renderHelper();
+
+    expect(screen.getByRole("slider")).toHaveAccessibleName(
+      "Set the visibility of one image over the other. 0 is full visibility of the second image and 100 is full visibility of the first image. Any amount in-between is a left/right cutoff at the percentage of the slider."
+    );
+  });
+
+  it("sets the range input label with the slider-label slot", async () => {
+    renderHelper(TestCompareImageWithSliderLabelSlot);
+
+    expect(screen.getByRole("slider")).toHaveAccessibleName("Custom label!");
   });
 });
