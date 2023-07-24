@@ -229,11 +229,12 @@
   </CompareImage>
 </div>
 
-<h3>Code Snippet</h3>
+<h3 id="code-snippet">Code Snippet</h3>
 <p>
-  The CSS Custom Properties are optional. The default values are used below.
+  The CSS Custom Properties are optional. The configuration for the preview
+  above is shown below.
 </p>
-<pre>{snippet}</pre>
+<pre aria-labelledby="code-snippet">{snippet}</pre>
 
 <style>
   .image-resizers {
