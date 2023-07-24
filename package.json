@@ -1,6 +1,6 @@
 {
   "name": "svelte-compare-image",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "author": "Brian Mitchell",
   "license": "MIT",
   "description": "A Svelte component to compare two images with a slider to reveal one over the other",
