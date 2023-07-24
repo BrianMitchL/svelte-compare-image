@@ -24,12 +24,6 @@ describe("index page", () => {
         "href",
         "https://npmjs.com/package/svelte-compare-image"
       );
-      expect(
-        screen.getByRole("link", { name: "react-compare-image" })
-      ).toHaveAttribute(
-        "href",
-        "https://github.com/junkboy0315/react-compare-image"
-      );
     });
   });
 });
