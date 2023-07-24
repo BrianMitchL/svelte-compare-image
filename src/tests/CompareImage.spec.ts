@@ -13,23 +13,7 @@ const yellow6x10 =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAKCAYAAACXDi8zAAAAE0lEQVR42mP8/5/hPwMWwDjcJQDOYx3t9hEGagAAAABJRU5ErkJggg==";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-async function renderHelper(props?: Record<string, any>) {
-  let listener: ((entry: ResizeObserverEntry[]) => void) | undefined =
-    undefined;
-  /* good god, the hacks in here to get these tests to run in jsdom 😬 */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  (window as any).ResizeObserver = class ResizeObserver {
-    constructor(ls: (entry: ResizeObserverEntry[]) => void) {
-      listener = ls;
-    }
-    observe() {
-      return;
-    }
-    disconnect() {
-      return;
-    }
-  };
-
+function renderHelper(props?: Record<string, any>) {
   const view = render(CompareImage, {
     imageLeftSrc: orange,
     imageLeftAlt: "left-alt",
@@ -60,57 +44,16 @@ async function renderHelper(props?: Record<string, any>) {
     .spyOn(screen.getByAltText("right-alt"), "naturalHeight", "get")
     .mockReturnValue(4);
 
-  await fireEvent.load(screen.getByAltText("left-alt"));
-  await fireEvent.load(screen.getByAltText("right-alt"));
-
-  await act(() => {
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    listener!([
-      {
-        target: {
-          getBoundingClientRect: () => ({
-            width: 6,
-            height: 4,
-            top: 2,
-            left: 2,
-            right: 8,
-            bottom: 6,
-            x: 2,
-            y: 2,
-          }),
-        },
-      } as ResizeObserverEntry,
-    ]);
-  });
-
-  vi.spyOn(
-    screen.getByAltText("left-alt"),
-    "getBoundingClientRect"
-  ).mockReturnValue({
-    width: 6,
-    height: 4,
-    top: 2,
-    left: 2,
-  } as DOMRect);
-
-  vi.spyOn(
-    screen.getByAltText("right-alt"),
-    "getBoundingClientRect"
-  ).mockReturnValue({
-    width: 6,
-    height: 4,
-    top: 2,
-    left: 2,
-  } as DOMRect);
-
   return view;
 }
 
 describe("CompareImage", () => {
-  const originalResizeObserver = window.ResizeObserver;
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
 
   afterEach(() => {
-    window.ResizeObserver = originalResizeObserver;
+    vi.useRealTimers();
   });
 
   it("renders empty images when no props are provided", () => {
@@ -123,7 +66,7 @@ describe("CompareImage", () => {
   });
 
   it("renders two images", async () => {
-    await renderHelper();
+    renderHelper();
 
     expect(await screen.findAllByRole("img")).toHaveLength(2);
     expect(screen.getByAltText("left-alt")).toBeInTheDocument();
@@ -131,7 +74,7 @@ describe("CompareImage", () => {
   });
 
   it("switches to a new image when props change", async () => {
-    const { component } = await renderHelper();
+    const { component } = renderHelper();
 
     expect(screen.getByAltText("left-alt")).toHaveAttribute("src", orange);
     expect(screen.getByAltText("right-alt")).toHaveAttribute("src", blue);
@@ -145,7 +88,7 @@ describe("CompareImage", () => {
   });
 
   it("switches to a new image with different dimensions when props change", async () => {
-    const { component } = await renderHelper();
+    const { component } = renderHelper();
 
     expect(screen.getByAltText("left-alt")).toHaveAttribute("src", orange);
     expect(screen.getByAltText("right-alt")).toHaveAttribute("src", blue);
@@ -158,127 +101,26 @@ describe("CompareImage", () => {
     expect(screen.getByAltText("right-alt")).toHaveAttribute("src", yellow6x10);
   });
 
-  it("sets style on the container element", async () => {
-    await renderHelper();
+  it("sets the --slider-position custom property when changing the slider", async () => {
+    renderHelper();
 
-    expect(screen.getByTestId("svelte-compare-image")).toHaveStyle({
-      "--container-height": "4px",
-      "--container-width": "6px",
-    });
-  });
-
-  it("changes the slider position with arrow keys", async () => {
-    async function keyDownArrow(dir: "Left" | "Right" | "Up" | "Down") {
-      await fireEvent.keyDown(screen.getByRole("slider"), {
-        key: `Arrow${dir}`,
-      });
-    }
-
-    function expectValueNow(value: string) {
-      expect(screen.getByRole("slider")).toHaveAttribute(
-        "aria-valuenow",
-        value
-      );
-    }
-
-    await renderHelper();
-
-    expectValueNow("0.5");
-    await keyDownArrow("Left");
-    expectValueNow("0.4");
-    await keyDownArrow("Down");
-    expectValueNow("0.3");
-    await keyDownArrow("Left");
-    expectValueNow("0.2");
-    await keyDownArrow("Left");
-    expectValueNow("0.1");
-    await keyDownArrow("Down");
-    expectValueNow("0");
-    await keyDownArrow("Left");
-    expectValueNow("0");
-    await keyDownArrow("Right");
-    expectValueNow("0.1");
-    await keyDownArrow("Right");
-    expectValueNow("0.2");
-    await keyDownArrow("Up");
-    expectValueNow("0.3");
-    await keyDownArrow("Right");
-    expectValueNow("0.4");
-    await keyDownArrow("Right");
-    expectValueNow("0.5");
-    await keyDownArrow("Right");
-    expectValueNow("0.6");
-    await keyDownArrow("Right");
-    expectValueNow("0.7");
-    await keyDownArrow("Up");
-    expectValueNow("0.8");
-    await keyDownArrow("Right");
-    expectValueNow("0.9");
-    await keyDownArrow("Right");
-    expectValueNow("1");
-    await keyDownArrow("Right");
-    expectValueNow("1");
-    await keyDownArrow("Left");
-    expectValueNow("0.9");
-  });
-
-  it("changes the slider position with mouse events", async () => {
-    await renderHelper();
-
-    expect(screen.getByRole("slider")).toHaveAttribute("aria-valuenow", "0.5");
-
-    await fireEvent.mouseDown(screen.getByTestId("svelte-compare-image"), {
-      clientX: 4,
-    });
-
-    expect(screen.getByRole("slider")).toHaveFocus();
-    expect(screen.getByRole("slider")).toHaveAttribute(
-      "aria-valuenow",
-      "0.3333333333333333"
+    expect(screen.getByRole("slider")).toHaveValue("50");
+    expect(screen.getByTestId("svelte-compare-image")).toHaveStyle(
+      "--slider-position: 50%"
     );
 
-    await fireEvent.mouseMove(screen.getByTestId("svelte-compare-image"), {
-      clientX: 6,
-    });
-    await fireEvent.mouseUp(screen.getByTestId("svelte-compare-image"));
-
-    expect(screen.getByRole("slider")).toHaveAttribute(
-      "aria-valuenow",
-      "0.6666666666666666"
-    );
-  });
-
-  it("changes the slider position with touch events", async () => {
-    await renderHelper();
-
-    expect(screen.getByRole("slider")).toHaveAttribute("aria-valuenow", "0.5");
-
-    await fireEvent.touchStart(screen.getByTestId("svelte-compare-image"), {
-      touches: [
-        {
-          clientX: 4,
-        },
-      ],
+    await fireEvent.change(screen.getByRole("slider"), {
+      target: { value: 20 },
     });
 
-    expect(screen.getByRole("slider")).toHaveFocus();
-    expect(screen.getByRole("slider")).toHaveAttribute(
-      "aria-valuenow",
-      "0.3333333333333333"
-    );
+    expect(screen.getByRole("slider")).toHaveValue("20");
 
-    await fireEvent.touchMove(screen.getByTestId("svelte-compare-image"), {
-      touches: [
-        {
-          clientX: 3,
-        },
-      ],
+    await act(() => {
+      vi.runAllTimers();
     });
-    await fireEvent.touchEnd(screen.getByTestId("svelte-compare-image"));
 
-    expect(screen.getByRole("slider")).toHaveAttribute(
-      "aria-valuenow",
-      "0.16666666666666666"
+    expect(screen.getByTestId("svelte-compare-image")).toHaveStyle(
+      "--slider-position: 20%"
     );
   });
 });
