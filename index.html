@@ -23,72 +23,49 @@
     />
     
 		<link href="./_app/immutable/assets/0.d97bcbf4.css" rel="stylesheet">
-		<link href="./_app/immutable/assets/2.b3aee6ea.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.90cd73b8.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.d8b7ebd1.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.3234ca46.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/index.a4d5a6cb.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.57f08d6b.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.6a0e02b2.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/2.a4f1fe15.js"><title>Svelte Compare Image</title><!-- HEAD_svelte-l9pt6u_START --><!-- HEAD_svelte-l9pt6u_END -->
+		<link href="./_app/immutable/assets/2.1ee33f21.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.ecda7a77.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.35ee4eb1.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.766a0fe4.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.6a9e844d.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.90ca7787.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.34886340.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.4c55158b.js"><title>Svelte Compare Image</title><!-- HEAD_svelte-l9pt6u_START --><!-- HEAD_svelte-l9pt6u_END -->
   </head>
   <body>
-    <div>
-
-
-<main class="svelte-c23oiq">
-
-<h1>Svelte Compare Image</h1>
-<p>A Svelte component to compare two images. Find the source on <a href="https://github.com/BrianMitchL/svelte-compare-image">GitHub</a>
+    <div>  <main class="svelte-c23oiq"> <h1 data-svelte-h="svelte-1wovre1">Svelte Compare Image</h1> <p data-svelte-h="svelte-1uxs046">A Svelte component to compare two images with a slider to reveal one over the
+  other. Find the source on <a href="https://github.com/BrianMitchL/svelte-compare-image">GitHub</a>
   and on NPM at
-  <a href="https://npmjs.com/package/svelte-compare-image"><code>svelte-compare-image</code></a>.
-</p>
-<p>The markup, state logic, and styling were originally adapted from <a href="https://github.com/junkboy0315/react-compare-image">react-compare-image</a>.
-</p>
-
-<h2>Example</h2>
-
-<div class="image-resizers svelte-1w01u7y"><fieldset aria-describedby="left-dimensions" class="svelte-1w01u7y"><legend>Left Image Size</legend>
-    <div><label for="left-image-width">Width</label>
-      <input id="left-image-width" type="range" min="100" max="1000" step="50" value="600"></div>
-    <div><label for="left-image-height">Height</label>
-      <input id="left-image-height" type="range" min="100" max="1000" step="50" value="400"></div>
-    <p id="left-dimensions" class="svelte-1w01u7y">Dimensions are <code>600px x 400px</code></p></fieldset>
-  <fieldset aria-describedby="right-dimensions" class="svelte-1w01u7y"><legend>Right Image Size</legend>
-    <div><label for="right-image-width">Width</label>
-      <input id="right-image-width" type="range" min="100" max="1000" step="50" value="600"></div>
-    <div><label for="right-image-height">Height</label>
-      <input id="right-image-height" type="range" min="100" max="1000" step="50" value="400"></div>
-    <p id="right-dimensions" class="svelte-1w01u7y">Dimensions are <code>600px x 400px</code></p></fieldset></div>
-
-<div class="wrapper svelte-1w01u7y"><div style="display: contents; --handle-size:2.5rem; --slider-color:#ffffff; --slider-width:0.125rem;"><div class="svelte-compare-image-container svelte-qgpj5s" style="--container-height: 0px; --container-width: 0px; --slider-position: 0.5;" data-testid="svelte-compare-image"><img src="https://via.placeholder.com/600x400/ffaa00/ffffff/?text=Left" alt="left" class="left-img svelte-qgpj5s">
-  <img src="https://via.placeholder.com/600x400/00aaff/ffffff?text=Right" alt="right" class="right-img svelte-qgpj5s">
-  <div class="slider svelte-qgpj5s" role="slider" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0.5" aria-label="Compare image" tabindex="0"><div class="line svelte-qgpj5s"></div>
-    <div class="handle svelte-qgpj5s"></div>
-    <div class="line svelte-qgpj5s"></div></div>
-</div></div></div>
-
-<h3>Code Snippet</h3>
-<p>The CSS Custom Properties are optional. The default values are used below.
-</p>
-<pre><!-- HTML_TAG_START -->&lt;CompareImage
-  imageLeftSrc="https://via.placeholder.com/600x400/ffaa00/ffffff/?text=Left"
+  <a href="https://npmjs.com/package/svelte-compare-image"><code>svelte-compare-image</code></a>. <img alt="npm" src="https://img.shields.io/npm/v/svelte-compare-image"></p> <h2 data-svelte-h="svelte-1jcu5zc">Example</h2> <div class="image-resizers form-group svelte-1fjfrg1"><fieldset aria-describedby="left-dimensions" class="svelte-1fjfrg1"><legend data-svelte-h="svelte-12sw1xp">Left Image Size</legend> <div><label for="left-image-width" data-svelte-h="svelte-kmw41q">Width</label> <input id="left-image-width" type="range" min="100" max="2000" step="50" value="600"></div> <div><label for="left-image-height" data-svelte-h="svelte-kxegpi">Height</label> <input id="left-image-height" type="range" min="100" max="2000" step="50" value="400"></div> <output id="left-dimensions" for="left-image-width left-image-height">Dimensions are <code>600px x 400px</code></output></fieldset> <fieldset aria-describedby="right-dimensions" class="svelte-1fjfrg1"><legend data-svelte-h="svelte-ly61mw">Right Image Size</legend> <div><label for="right-image-width" data-svelte-h="svelte-1p0l477">Width</label> <input id="right-image-width" type="range" min="100" max="2000" step="50" value="600"></div> <div><label for="right-image-height" data-svelte-h="svelte-vcnpa3">Height</label> <input id="right-image-height" type="range" min="100" max="2000" step="50" value="400"></div> <output id="right-dimensions" for="right-image-width right-image-height">Dimensions are <code>600px x 400px</code></output></fieldset></div> <div class="form-group svelte-1fjfrg1"><div><label>Handle Size
+      <input id="handle-size" type="range" min="1" max="5" step="0.125" value="2.5"></label> <output for="handle-size">2.5rem</output></div> <div><label>Handle Background Color
+      <input id="handle-background-color" type="color" value="rgba(0, 0, 0, 0.6)"></label> <output for="handle-background-color">rgba(0, 0, 0, 0.6)</output></div> <div><div id="handle-background-image-label" data-svelte-h="svelte-v7r6f7">Handle Background Image</div> <pre contenteditable="true" aria-labelledby="handle-background-image-label" class="svelte-1fjfrg1">url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 12H21M3 12L7 8M3 12L7 16M21 12L17 16M21 12L17 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>')</pre></div> <div><label>Handle Border Width
+      <input id="handle-border-width" type="range" min="0" max="1" step="0.0625" value="0.125"></label> <output for="handle-border-width">0.125rem</output></div> <div><label>Slider Color
+      <input id="slider-color" type="color" value="#ffffff"></label> <output for="slider-color">#ffffff</output></div> <div><label>Slider Width
+      <input id="slider-width" type="range" min="0" max="1" step="0.0625" value="0.125"></label> <output for="slider-width">0.125rem</output></div></div> <div class="wrapper svelte-1fjfrg1"><div style="display: contents; --handle-size:2.5rem; --handle-background-color:rgba(0, 0, 0, 0.6); --handle-background-image:url('data:image/svg+xml;utf8,<svg viewBox=&quot;0 0 24 24&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;><path d=&quot;M3 12H21M3 12L7 8M3 12L7 16M21 12L17 16M21 12L17 8&quot; stroke=&quot;white&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;/></svg>'); --handle-border-width:0.125rem; --slider-color:#ffffff; --slider-width:0.125rem;"><div class="svelte-compare-image-container svelte-1f1k1of" style="--slider-position: 50%;" data-testid="svelte-compare-image"><img src="https://via.placeholder.com/600x400/ffaa00/ffffff/?text=Example+Text" alt="left" class="left-img svelte-1f1k1of"> <img src="https://via.placeholder.com/600x400/00aaff/ffffff?text=Example+Text" alt="right" class="right-img svelte-1f1k1of"> <label class="svelte-1f1k1of"><span class="visually-hidden svelte-1f1k1of">Set the visibility of one image over the other. 0 is full visibility of
+      the second image and 100 is full visibility of the first image. Any amount
+      in-between is a left/right cutoff at the percentage of the slider.</span> <input type="range" min="0" max="100" value="50" class="svelte-1f1k1of"></label> </div></div></div> <h3 id="code-snippet" data-svelte-h="svelte-g2f56h">Code Snippet</h3> <p data-svelte-h="svelte-19i4qdw">The CSS Custom Properties are optional. The configuration for the preview
+  above is shown below.</p> <pre aria-labelledby="code-snippet">&lt;CompareImage
+  imageLeftSrc="https://via.placeholder.com/600x400/ffaa00/ffffff/?text=Example+Text"
   imageLeftAlt="left"
-  imageRightSrc="https://via.placeholder.com/600x400/00aaff/ffffff?text=Right"
+  imageRightSrc="https://via.placeholder.com/600x400/00aaff/ffffff?text=Example+Text"
   imageRightAlt="right"
   --handle-size="2.5rem"
+  --handle-background-color="rgba(0, 0, 0, 0.6)"
+  --handle-background-image="url('data:image/svg+xml;utf8,&lt;svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path d="M3 12H21M3 12L7 8M3 12L7 16M21 12L17 16M21 12L17 8" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>&lt;/svg>')"
+  --handle-border-width="0.125rem"
   --slider-color="#ffffff"
   --slider-width="0.125rem"
-/&gt;<!-- HTML_TAG_END --></pre></main>
-
-<footer class="svelte-c23oiq"><p>Made by Brian Mitchell - <a href="https://brianm.me" class="svelte-c23oiq">brianm.me</a></p>
-</footer>
-
-
+>
+  &lt;svelte:fragment slot="slider-label">
+    Set the visibility of one image over the other. 0 is full visibility of
+    the second image and 100 is full visibility of the first image. Any
+    amount in-between is a left/right cutoff at the percentage of the slider.
+  &lt;/svelte:fragment>
+&lt;/CompareImage></pre></main> <footer class="svelte-c23oiq" data-svelte-h="svelte-12e0mju"><p>Made by Brian Mitchell - <a href="https://brianm.me" class="svelte-c23oiq">brianm.me</a></p> </footer> 
 			
 			<script>
 				{
-					__sveltekit_12z2t6c = {
+					__sveltekit_14sowuv = {
 						assets: "/svelte-compare-image",
 						base: new URL(".", location).pathname.slice(0, -1),
 						env: {}
@@ -99,8 +76,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./_app/immutable/entry/start.90cd73b8.js"),
-						import("./_app/immutable/entry/app.57f08d6b.js")
+						import("./_app/immutable/entry/start.ecda7a77.js"),
+						import("./_app/immutable/entry/app.6a9e844d.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
