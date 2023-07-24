@@ -41,7 +41,7 @@ It looks like this (shown with `darkgray` for viewing here, it is white in the c
 
 `CompareImage` has one named slot, `slider-label`, which is used to label the
 slider control. It is displayed in a visually hidden `span`. The default value
-is thw following:
+is the following:
 
 > Set the visibility of one image over the other. 0 is full visibility of
 > the second image and 100 is full visibility of the first image. Any
