@@ -1,9 +1,11 @@
-# svelte-compare-image
+# svelte-compare-image [![npm](https://img.shields.io/npm/v/svelte-compare-image)](https://www.npmjs.com/package/svelte-compare-image)
 
 A Svelte component to compare two images with a slider to reveal one over the other.
 Find the package on NPM at [svelte-compare-image](https://npmjs.com/package/svelte-compare-image).
 
 An interactive example can be found at https://projects.brianm.me/svelte-compare-image/
+
+This component is CI tested against Svelte 4, but should work with Svelte 3 as well.
 
 ![screen recording example](example.gif)
 
