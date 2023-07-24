@@ -142,4 +142,14 @@ describe("CompareImage", () => {
 
     expect(screen.getByRole("slider")).toHaveAccessibleName("Custom label!");
   });
+
+  it("focuses on the range input when clicking it", async () => {
+    renderHelper();
+
+    expect(screen.getByRole("slider")).not.toHaveFocus();
+
+    await fireEvent.click(screen.getByRole("slider"));
+
+    expect(screen.getByRole("slider")).toHaveFocus();
+  });
 });
