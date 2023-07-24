@@ -16,11 +16,5 @@
     ><code>svelte-compare-image</code></a
   >.
 </p>
-<p>
-  The markup, state logic, and styling were originally adapted from <a
-    href="https://github.com/junkboy0315/react-compare-image"
-    >react-compare-image</a
-  >.
-</p>
 
 <Example />
