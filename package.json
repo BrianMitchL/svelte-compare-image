@@ -3,14 +3,14 @@
   "version": "1.0.4",
   "author": "Brian Mitchell",
   "license": "MIT",
-  "description": "A Svelte component to compare two images",
+  "description": "A Svelte component to compare two images with a slider to reveal one over the other",
   "keywords": [
     "svelte",
     "compare",
     "image",
     "slider"
   ],
-  "homepage": "https://github.com/BrianMitchL/svelte-compare-image",
+  "homepage": "https://projects.brianm.me/svelte-compare-image/",
   "repository": {
     "type": "git",
     "url": "https://github.com/BrianMitchL/svelte-compare-image.git"
