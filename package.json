@@ -80,6 +80,6 @@
     "pre-commit": "npm run prettier-staged"
   },
   "engines": {
-    "node": ">=18.15.0"
+    "node": ">=16.15.0"
   }
 }

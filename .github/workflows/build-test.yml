@@ -9,12 +9,15 @@ on:
 jobs:
   build-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [16, 18]
     steps:
-      - uses: actions/checkout@v3
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: "18.x"
+          node-version: ${{ matrix.version }}
+      - uses: actions/checkout@v3
       - name: Install deps
         run: npm ci
       - name: Check Types
