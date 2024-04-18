@@ -5,7 +5,7 @@ Find the package on NPM at [svelte-compare-image](https://npmjs.com/package/svel
 
 An interactive example can be found at https://projects.brianm.me/svelte-compare-image/
 
-This component is CI tested against Svelte 4, but should work with Svelte 3 as well.
+This component requires Svelte 4. Use version 2 to support Svelte 3.
 
 ![screen recording example](example.gif)
 
