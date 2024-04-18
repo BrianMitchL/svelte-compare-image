@@ -19,6 +19,9 @@ module.exports = {
     es2017: true,
     node: true,
   },
+  rules: {
+    "testing-library/no-await-sync-events": 0,
+  },
   overrides: [
     {
       files: ["*.svelte"],

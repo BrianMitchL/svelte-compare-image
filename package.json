@@ -55,12 +55,12 @@
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/svelte": "^4.1.0",
     "@types/testing-library__jest-dom": "^5.14.9",
-    "@typescript-eslint/eslint-plugin": "^6.21.0",
-    "@typescript-eslint/parser": "^6.21.0",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "@typescript-eslint/parser": "^7.7.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^8.10.0",
     "eslint-plugin-svelte": "^2.37.0",
-    "eslint-plugin-testing-library": "^5.11.1",
+    "eslint-plugin-testing-library": "^6.2.2",
     "jsdom": "^24.0.0",
     "prettier": "^3.2.5",
     "prettier-plugin-svelte": "^3.2.3",
@@ -81,6 +81,6 @@
     "pre-commit": "npm run prettier-staged"
   },
   "engines": {
-    "node": "^18.0.0 || >=20.0.0"
+    "node": "^18.18.0 || >=20.0.0"
   }
 }
