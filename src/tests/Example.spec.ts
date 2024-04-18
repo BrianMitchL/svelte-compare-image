@@ -10,7 +10,7 @@ import Example from "../components/Example.svelte";
 
 function getRangeInput(image: "Left" | "Right", dimension: "Width" | "Height") {
   return within(
-    screen.getByRole("group", { name: `${image} Image Size` })
+    screen.getByRole("group", { name: `${image} Image Size` }),
   ).getByLabelText(dimension);
 }
 
@@ -28,12 +28,12 @@ describe("Example", () => {
     expect(getRangeInput("Left", "Width")).toHaveValue("600");
     expect(getRangeInput("Left", "Height")).toHaveValue("400");
     expect(
-      screen.getByRole("group", { name: "Left Image Size" })
+      screen.getByRole("group", { name: "Left Image Size" }),
     ).toHaveAccessibleDescription("Dimensions are 600px x 400px");
     expect(getRangeInput("Right", "Width")).toHaveValue("600");
     expect(getRangeInput("Right", "Height")).toHaveValue("400");
     expect(
-      screen.getByRole("group", { name: "Right Image Size" })
+      screen.getByRole("group", { name: "Right Image Size" }),
     ).toHaveAccessibleDescription("Dimensions are 600px x 400px");
   });
 
@@ -41,7 +41,7 @@ describe("Example", () => {
     expect(getRangeInput("Left", "Width")).toHaveValue("600");
     expect(getRangeInput("Left", "Height")).toHaveValue("400");
     expect(
-      screen.getByRole("group", { name: "Left Image Size" })
+      screen.getByRole("group", { name: "Left Image Size" }),
     ).toHaveAccessibleDescription("Dimensions are 600px x 400px");
 
     await fireEvent.input(getRangeInput("Left", "Width"), {
@@ -59,7 +59,7 @@ describe("Example", () => {
     });
 
     expect(
-      screen.getByRole("group", { name: "Left Image Size" })
+      screen.getByRole("group", { name: "Left Image Size" }),
     ).toHaveAccessibleDescription("Dimensions are 450px x 200px");
   });
 
@@ -67,7 +67,7 @@ describe("Example", () => {
     expect(getRangeInput("Right", "Width")).toHaveValue("600");
     expect(getRangeInput("Right", "Height")).toHaveValue("400");
     expect(
-      screen.getByRole("group", { name: "Right Image Size" })
+      screen.getByRole("group", { name: "Right Image Size" }),
     ).toHaveAccessibleDescription("Dimensions are 600px x 400px");
 
     await fireEvent.input(getRangeInput("Right", "Width"), {
@@ -85,14 +85,14 @@ describe("Example", () => {
     });
 
     expect(
-      screen.getByRole("group", { name: "Right Image Size" })
+      screen.getByRole("group", { name: "Right Image Size" }),
     ).toHaveAccessibleDescription("Dimensions are 450px x 200px");
   });
 
   it("changes the handle size", async () => {
     expect(screen.getByLabelText("Handle Size")).toHaveValue("2.5");
     expect(screen.getByLabelText("Code Snippet")).toHaveTextContent(
-      /--handle-size="2\.5rem"/
+      /--handle-size="2\.5rem"/,
     );
 
     await fireEvent.input(screen.getByLabelText("Handle Size"), {
@@ -101,16 +101,16 @@ describe("Example", () => {
 
     expect(screen.getByLabelText("Handle Size")).toHaveValue("1.25");
     expect(screen.getByLabelText("Code Snippet")).toHaveTextContent(
-      /--handle-size="1\.25rem"/
+      /--handle-size="1\.25rem"/,
     );
   });
 
   it("changes the handle background color", async () => {
     expect(screen.getByLabelText("Handle Background Color")).toHaveValue(
-      "#000000"
+      "#000000",
     );
     expect(screen.getByLabelText("Code Snippet")).toHaveTextContent(
-      /--handle-background-color="rgba\(0, 0, 0, 0\.6\)"/
+      /--handle-background-color="rgba\(0, 0, 0, 0\.6\)"/,
     );
 
     await fireEvent.input(screen.getByLabelText("Handle Background Color"), {
@@ -118,17 +118,17 @@ describe("Example", () => {
     });
 
     expect(screen.getByLabelText("Handle Background Color")).toHaveValue(
-      "#bada55"
+      "#bada55",
     );
     expect(screen.getByLabelText("Code Snippet")).toHaveTextContent(
-      /--handle-background-color="#bada55"/
+      /--handle-background-color="#bada55"/,
     );
   });
 
   it("changes the handle border width", async () => {
     expect(screen.getByLabelText("Handle Border Width")).toHaveValue("0.125");
     expect(screen.getByLabelText("Code Snippet")).toHaveTextContent(
-      /--handle-border-width="0\.125rem"/
+      /--handle-border-width="0\.125rem"/,
     );
 
     await fireEvent.input(screen.getByLabelText("Handle Border Width"), {
@@ -137,14 +137,14 @@ describe("Example", () => {
 
     expect(screen.getByLabelText("Handle Border Width")).toHaveValue("0.75");
     expect(screen.getByLabelText("Code Snippet")).toHaveTextContent(
-      /--handle-border-width="0\.75rem"/
+      /--handle-border-width="0\.75rem"/,
     );
   });
 
   it("changes the slider color", async () => {
     expect(screen.getByLabelText("Slider Color")).toHaveValue("#ffffff");
     expect(screen.getByLabelText("Code Snippet")).toHaveTextContent(
-      /--slider-color="#ffffff"/
+      /--slider-color="#ffffff"/,
     );
 
     await fireEvent.input(screen.getByLabelText("Slider Color"), {
@@ -153,14 +153,14 @@ describe("Example", () => {
 
     expect(screen.getByLabelText("Slider Color")).toHaveValue("#bada55");
     expect(screen.getByLabelText("Code Snippet")).toHaveTextContent(
-      /--slider-color="#bada55"/
+      /--slider-color="#bada55"/,
     );
   });
 
   it("changes the slider width", async () => {
     expect(screen.getByLabelText("Slider Width")).toHaveValue("0.125");
     expect(screen.getByLabelText("Code Snippet")).toHaveTextContent(
-      /--slider-width="0\.125rem"/
+      /--slider-width="0\.125rem"/,
     );
 
     await fireEvent.input(screen.getByLabelText("Slider Width"), {
@@ -169,7 +169,7 @@ describe("Example", () => {
 
     expect(screen.getByLabelText("Slider Width")).toHaveValue("0.25");
     expect(screen.getByLabelText("Code Snippet")).toHaveTextContent(
-      /--slider-width="0\.25rem"/
+      /--slider-width="0\.25rem"/,
     );
   });
 });

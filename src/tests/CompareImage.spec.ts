@@ -17,7 +17,7 @@ const yellow6x10 =
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function renderHelper(
   component: ComponentType = CompareImage,
-  props?: Record<string, unknown>
+  props?: Record<string, unknown>,
 ) {
   const view = render(component, {
     imageLeftSrc: orange,
@@ -111,7 +111,7 @@ describe("CompareImage", () => {
 
     expect(screen.getByRole("slider")).toHaveValue("50");
     expect(screen.getByTestId("svelte-compare-image")).toHaveStyle(
-      "--slider-position: 50%"
+      "--slider-position: 50%",
     );
 
     await fireEvent.change(screen.getByRole("slider"), {
@@ -125,7 +125,7 @@ describe("CompareImage", () => {
     });
 
     expect(screen.getByTestId("svelte-compare-image")).toHaveStyle(
-      "--slider-position: 20%"
+      "--slider-position: 20%",
     );
   });
 
@@ -133,7 +133,7 @@ describe("CompareImage", () => {
     renderHelper();
 
     expect(screen.getByRole("slider")).toHaveAccessibleName(
-      "Set the visibility of one image over the other. 0 is full visibility of the second image and 100 is full visibility of the first image. Any amount in-between is a left/right cutoff at the percentage of the slider."
+      "Set the visibility of one image over the other. 0 is full visibility of the second image and 100 is full visibility of the first image. Any amount in-between is a left/right cutoff at the percentage of the slider.",
     );
   });
 
